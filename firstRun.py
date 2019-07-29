@@ -23,7 +23,7 @@ GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
 def callback_method():
-    GPIO.output(3, HIGH)
+    GPIO.output(3, 1)
 # Logic that you write
 def main():
     GPIO.add_event_detect(7, GPIO.FALLING, callback=callback_method(), bouncetime=300)
