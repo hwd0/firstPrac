@@ -24,7 +24,7 @@ GPIO.setwarnings(False)
 
 def LED(channel):
     print 'button pressed'
-	GPIO.output(3, HIGH)
+    GPIO.output(3, HIGH)
 # Logic that you write
 def main():
     GPIO.add_event_detect(5, GPIO.FALLING, callback=LED,bouncetime=300)
