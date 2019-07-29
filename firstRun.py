@@ -22,13 +22,13 @@ GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 GPIO.setwarnings(False)
 
-
+def LED(channel):
+    print 'button pressed'
+	GPIO.output(3, HIGH)
 # Logic that you write
 def main():
-    GPIO.output(3, 1)
-    time.sleep(0.5)
-    GPIO.output(3, 0)
-    time.sleep(0.5)
+    GPIO.add_event_detect(5, GPIO.FALLING, callback=LED,bouncetime=300)
+    
 	
 
 # Only run the functions if 
