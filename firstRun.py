@@ -30,10 +30,9 @@ def main():
 if __name__ == "__main__":
     # Make sure the GPIO is stopped correctly
     try:
-        while True:
-            main()
-	except GPIO.wait_for_edge(5, GPIO.FALLING)	
-		GPIO.output(3, GPIO.HIGH)
+        GPIO.wait_for_edge(5, GPIO.FALLING)
+		GPIO.output(3, HIGH)
+	
     except KeyboardInterrupt:
         print("Exiting gracefully")
         # Turn off your GPIOs here
