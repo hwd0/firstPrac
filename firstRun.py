@@ -22,7 +22,7 @@ GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
 
-def callback_method(channel):
+def callback_method():
     GPIO.output(3, HIGH)
 # Logic that you write
 def main():
