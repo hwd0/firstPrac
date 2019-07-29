@@ -26,17 +26,17 @@ GPIO.setwarnings(False)
 # Logic that you write
 def main():
     GPIO.output(3, 1)
-	time.sleep(0.5)
-	GPIO.output(3, 0)
-	time.sleep(0.5)
+    time.sleep(0.5)
+    GPIO.output(3, 0)
+    time.sleep(0.5)
 	
 
 # Only run the functions if 
 if __name__ == "__main__":
     # Make sure the GPIO is stopped correctly
     try:
-        while True:
-			main()
+         while True:
+            main()
     except KeyboardInterrupt:
         print("Exiting gracefully")
         # Turn off your GPIOs here
