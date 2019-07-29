@@ -20,7 +20,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(3, GPIO.OUT, initial=GPIO.HIGH)
 GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-GPIO.setwarnings(False)
+
 
 def LED(channel):
     GPIO.output(3, HIGH)
