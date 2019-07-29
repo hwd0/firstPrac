@@ -27,7 +27,7 @@ def LED(channel):
     GPIO.output(3, HIGH)
 # Logic that you write
 def main():
-    GPIO.add_event_detect(7, GPIO.FALLING, callback=LED,bouncetime=300)
+    GPIO.add_event_detect(7, GPIO.FALLING, callback=LED, bouncetime=300)
     
 	
 
