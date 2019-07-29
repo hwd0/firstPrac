@@ -5,14 +5,14 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BOARD)  
   
 # GPIO 23 set up as input. It is pulled up to stop false signals  
-GPIO.setup(23, GPIO.IN, pull_up_down=GPIO.PUD_UP)  
+GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)  
   
 print "Make sure you have a button connected so that when pressed"  
-print "it will connect GPIO port 23 (pin 16) to GND (pin 6)\n"  
+print "it will connect GPIO port 5 (pin 16) to GND (pin 6)\n"  
 raw_input("Press Enter when ready\n>")  
   
-print "Waiting for falling edge on port 23"  
-# now the program will do nothing until the signal on port 23   
+print "Waiting for falling edge on port 5"  
+# now the program will do nothing until the signal on port 5   
 # starts to fall towards zero. This is why we used the pullup  
 # to keep the signal high and prevent a false interrupt  
   
