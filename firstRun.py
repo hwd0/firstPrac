@@ -1,28 +1,43 @@
-#!/usr/bin/env python2.7  
-# script by Alex Eames https://raspi.tv/  
-# https://raspi.tv/2013/how-to-use-interrupts-with-python-on-the-raspberry-pi-and-rpi-gpio  
-import RPi.GPIO as GPIO  
-GPIO.setmode(GPIO.BOARD)  
-  
-# GPIO 23 set up as input. It is pulled up to stop false signals  
-GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)  
-  
-print "Make sure you have a button connected so that when pressed"  
-print "it will connect GPIO port 5 (pin 16) to GND (pin 6)\n"  
-raw_input("Press Enter when ready\n>")  
-  
-print "Waiting for falling edge on port 5"  
-# now the program will do nothing until the signal on port 5   
-# starts to fall towards zero. This is why we used the pullup  
-# to keep the signal high and prevent a false interrupt  
-  
-print "During this waiting time, your computer is not"   
-print "wasting resources by polling for a button press.\n"  
-print "Press your button when ready to initiate a falling edge interrupt."  
-try:  
-    GPIO.wait_for_edge(5, GPIO.FALLING)  
-    print "\nFalling edge detected. Now your program can continue with"  
-    print "whatever was waiting for a button press."  
-except KeyboardInterrupt:  
-    GPIO.cleanup()       # clean up GPIO on CTRL+C exit  
-GPIO.cleanup()           # clean up GPIO on normal exit  
+#!/usr/bin/python3
+"""
+Python Practical Template
+Keegan Crankshaw
+Readjust this Docstring as follows:
+Names: <names>
+Student Number: <studnum>
+Prac: <Prac Num>
+Date: <dd/mm/yyyy>
+"""
+
+# import Relevant Librares
+import RPi.GPIO as GPIO
+
+GPIO.cleanup()
+
+GPIO.setmode(GPIO.BOARD)
+
+GPIO.setup(3, GPIO.OUT, initial=GPIO.HIGH)
+GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+GPIO.setwarnings(False)
+
+# Logic that you write
+def main():
+    print("write your logic here")
+
+
+# Only run the functions if 
+if __name__ == "__main__":
+    # Make sure the GPIO is stopped correctly
+    try:
+        GPIO.wait_for_edge(5, GPIO.FALLING) 
+		GPIO.output(3, GPIO.HIGH)
+        main()
+    except KeyboardInterrupt:
+        print("Exiting gracefully")
+        # Turn off your GPIOs here
+        GPIO.cleanup()
+    except Exception as e:
+        GPIO.cleanup()
+        print("Some other error occurred")
+        print(e.message)
