@@ -11,6 +11,7 @@ Date: <dd/mm/yyyy>
 
 # import Relevant Librares
 import RPi.GPIO as GPIO
+import time
 
 GPIO.cleanup()
 
@@ -21,13 +22,14 @@ GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 GPIO.setwarnings(False)
 
-def call(channel):
-	print 'button pressed'
-	GPIO.output(3, GPIO.HIGH)
+
 # Logic that you write
 def main():
-    print("waiting for button press")
-	GPIO.add_event_detect(5, GPIO.FALLING, callback=call bouncetime=300)
+    GPIO.output(3, 1)
+	time.sleep(0.5)
+	GPIO.output(3, 0)
+	time.sleep(0.5)
+	
 
 # Only run the functions if 
 if __name__ == "__main__":
