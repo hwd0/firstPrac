@@ -22,11 +22,11 @@ GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
 
-def LED(channel):
+def callback_method(channel):
     GPIO.output(3, HIGH)
 # Logic that you write
 def main():
-    GPIO.add_event_detect(11, GPIO.FALLING, callback=LED, bouncetime=300)
+    GPIO.add_event_detect(7, GPIO.FALLING, callback=callback_method(), bouncetime=300)
     
 	
 
