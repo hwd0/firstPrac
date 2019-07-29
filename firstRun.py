@@ -18,7 +18,7 @@ GPIO.cleanup()
 GPIO.setmode(GPIO.BOARD)
 
 GPIO.setup(3, GPIO.OUT, initial=GPIO.HIGH)
-GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 GPIO.setwarnings(False)
 
@@ -27,7 +27,7 @@ def LED(channel):
     GPIO.output(3, HIGH)
 # Logic that you write
 def main():
-    GPIO.add_event_detect(5, GPIO.FALLING, callback=LED,bouncetime=300)
+    GPIO.add_event_detect(7, GPIO.FALLING, callback=LED,bouncetime=300)
     
 	
 
